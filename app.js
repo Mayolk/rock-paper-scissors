@@ -73,6 +73,8 @@ function game () {
   let playerCount = 0;
   let computerCount = 0;
 
+  // USE A LOOP
+
   let lastRound = playRound(prompt('Round 1. Rock, paper or scissors','') , computerPlay());
   if ( lastRound === 'win') {
     playerCount++;
