@@ -67,46 +67,25 @@ function playRound (playerSelection, computerSelection) {
   }
 
 }
+
 // Take input from the user and playRound.
 // Record results
 function game () {
   let playerCount = 0;
   let computerCount = 0;
 
-  // USE A LOOP
 
-  let lastRound = playRound(prompt('Round 1. Rock, paper or scissors','') , computerPlay());
-  if ( lastRound === 'win') {
-    playerCount++;
-  } else if (lastRound === 'lose')  {
-    computerCount++;
-  }
-  lastRound = playRound(prompt('Round 2. Rock, paper or scissors','') , computerPlay());
-  if ( lastRound === 'win') {
-    playerCount++;
-  } else if (lastRound === 'lose')  {
-    computerCount++;
-  }
-  lastRound = playRound(prompt('Round 3. Rock, paper or scissors','') , computerPlay());
-  if ( lastRound === 'win') {
-    playerCount++;
-  } else if (lastRound === 'lose')  {
-    computerCount++;
+  for (i = 1; i <= 5; i++) {
+
+    let lastRound = playRound(prompt(`Round ${i}. Rock, paper or scissors`,''), computerPlay());
+
+    if ( lastRound === 'win') {
+      playerCount++;
+    } else if (lastRound === 'lose') {
+      computerCount++;
+    }
   }
 
-  lastRound = playRound(prompt('Round 4. Rock, paper or scissors','') , computerPlay());
-  if ( lastRound === 'win') {
-    playerCount++;
-  } else if (lastRound === 'lose')  {
-    computerCount++;
-  }
-
-  lastRound = playRound(prompt('Round 5. Rock, paper or scissors','') , computerPlay());
-  if ( lastRound === 'win') {
-    playerCount++;
-  } else if (lastRound === 'lose')  {
-    computerCount++;
-  }
 
   console.log(`Final result: You:${playerCount} - Comp:${computerCount}`);
 }
