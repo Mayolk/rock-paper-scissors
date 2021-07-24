@@ -1,23 +1,48 @@
-// Generate computer input: rock, paper or scissors at random.
-function computerPlay() {
-  let randomNumber = Math.random() * 3;
-  if (randomNumber < 1) {
-    return 'rock';
-  } else if (randomNumber < 2) {
-    return 'paper';
-  } else {
-    return 'scissors';
+game();
+
+// ***
+function game () {
+
+  let playerCount = 0;
+  let computerCount = 0;
+  let limit = 3;
+  const overallResult = document.querySelector('#overall');
+  const moves = document.querySelectorAll('.move');
+  const playerOptions = document.querySelector('#player-options');
+  
+  moves.forEach( move => move.addEventListener('mouseup', playRound))
+
+  function playRound() {
+    let roundResult = getRoundResult(this);
+    
+    if (roundResult === 'win') {
+      playerCount++;
+    } else if (roundResult === 'lose') {
+      computerCount++;
+    }
+    
+    overallResult.textContent = `Player: ${playerCount} - Computer: ${computerCount}`;
+   
+    if (playerCount === limit || computerCount === limit) {
+      playerOptions.innerHTML = `
+      <h3>
+      GAME OVER!
+      </h3>
+      `;
+    }
   }
 }
 
-// Take player input and computer input and simulate a round
-function playRound () {
-  let computer = computerPlay();
-  let player = this.textContent.toLowerCase();
+// Calculate result of one round
+function getRoundResult (move) {
+ 
+  let computerMove = getComputerMove();
+  let playerMove = move.textContent.toLowerCase();
   const lastRound = document.querySelector('#last-round');
-  switch (computer) {
+
+  switch (computerMove) {
     case 'rock':
-      switch (player) {
+      switch (playerMove) {
         case 'rock':
         lastRound.textContent = "It's a draw.";
         return 'draw';
@@ -32,7 +57,7 @@ function playRound () {
       }
     break;
     case 'paper':
-      switch (player) {
+      switch (playerMove) {
         case 'rock':
         lastRound.textContent = "You lose. Paper beats rock.";
         return 'lose';
@@ -47,7 +72,7 @@ function playRound () {
       }
     break;
     case 'scissors':
-      switch (player) {
+      switch (playerMove) {
         case 'rock':
         lastRound.textContent = "You win. Rock beats scissors.";
         return 'win';
@@ -62,21 +87,18 @@ function playRound () {
       }
     break;
     default:
-      console.log('Something went wrong.');
+      lastRound.textContent = 'Something went wrong.';
   }
-
 }
 
-// Take input from the user and playRound.
-// Record results
-function game () {
-  let playerCount = 0;
-  let computerCount = 0;
-
-  const moves = document.querySelectorAll('.move');
-  moves.forEach( move => move.addEventListener('mouseup', playRound));
-
-
+// Generate computer input: rock, paper or scissors at random.
+function getComputerMove() {
+  let randomNumber = Math.random() * 3;
+  if (randomNumber < 1) {
+    return 'rock';
+  } else if (randomNumber < 2) {
+    return 'paper';
+  } else {
+    return 'scissors';
+  }
 }
-
-game();
