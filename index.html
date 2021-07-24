@@ -6,13 +6,24 @@
   <title>Rock Paper Scissors game</title>
 </head>
 <body style="display: flex; flex-direction: column; align-items: center;">
-  <h1>
+  <h1 id="title">
     Rock Paper Scissors game
   </h1>
-  <p>
-    Open console to play.
-  </p>
+
+  <div id="player-move">
+    <h3>Pick your move</h3>
+    <div id="moves">
+      <button class="btn move" id="rock-move">Rock</button>
+      <button class="btn move" id="paper-move">Paper</button>
+      <button class="btn move" id="scissors-move">Scissors</button>
+    </div>
+  </div>
   
+  <div id="results">
+    <p id="last-round"></p>
+    <p id="aggregate"></p>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
