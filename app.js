@@ -5,7 +5,7 @@ function game () {
 
   let playerCount = 0;
   let computerCount = 0;
-  let limit = 3;
+  let limit = 5;
   const overallResult = document.querySelector('#overall');
   const moves = document.querySelectorAll('.move');
   const playerOptions = document.querySelector('#player-options');
@@ -21,13 +21,17 @@ function game () {
       computerCount++;
     }
     
-    overallResult.textContent = `Player: ${playerCount} - Computer: ${computerCount}`;
+    overallResult.textContent = `Player ${playerCount} - ${computerCount} Computer`;
    
-    if (playerCount === limit || computerCount === limit) {
+    if (playerCount === limit) {
       playerOptions.innerHTML = `
-      <h3>
-      GAME OVER!
-      </h3>
+      <h3 class="pb-1">GAME OVER!</h3>
+      <h3>YOU WIN!</h3>
+      `;
+    } else if (computerCount === limit) {
+      playerOptions.innerHTML = `
+      <h3 class="pb-1">GAME OVER!</h3>
+      <h3>YOU LOSE!</h3>
       `;
     }
   }

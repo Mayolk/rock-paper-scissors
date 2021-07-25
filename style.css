@@ -1,0 +1,52 @@
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: steelblue;
+  color: hsl(207, 44%, 95%);
+}
+
+.pb-1 {
+  padding-bottom: 0.5rem;
+}
+
+#title {
+  font-size: 2.5rem;
+  padding: 3rem;
+}
+
+#player-options {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+#moves {
+  margin-top: 0.5rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+#results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#overall {
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+}
