@@ -26,12 +26,14 @@ function game () {
     if (playerCount === limit) {
       playerOptions.innerHTML = `
       <h3 class="pb-1">GAME OVER!</h3>
-      <h3>YOU WIN!</h3>
+      <h3 class="pb-1">YOU WIN!</h3>
+      <p>Press F5 to play again.</p>
       `;
     } else if (computerCount === limit) {
       playerOptions.innerHTML = `
       <h3 class="pb-1">GAME OVER!</h3>
-      <h3>YOU LOSE!</h3>
+      <h3 class="pb-1">YOU LOSE!</h3>
+      <p>Press F5 to play again.</p>
       `;
     }
   }
